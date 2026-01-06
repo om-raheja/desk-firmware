@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": -51.15,
+      "left": 51.6,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+    {
+      "type": "wokwi-led-ring",
+      "id": "ring1",
+      "top": 19.84,
+      "left": -133.21,
+      "attrs": { "pixels": "16" }
+    },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": -75.1, "left": -125.6, "attrs": {} },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": 71.2,
+      "left": 173.9,
+      "attrs": { "common": "cathode" }
+    },
+    { "type": "wokwi-servo", "id": "servo1", "top": -21.2, "left": 153.6, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 176.75,
+      "left": -19.2,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz2",
+      "top": -93.6,
+      "left": 184.2,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb2",
+      "top": 32.8,
+      "left": -56.5,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb3",
+      "top": 80.8,
+      "left": -85.3,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb4",
+      "top": 32.8,
+      "left": -114.1,
+      "attrs": { "common": "cathode" }
+    }
+  ],
+  "connections": [
+    [ "pico:GND.1", "encoder1:GND", "black", [ "h-67.2", "v-9.6" ] ],
+    [ "encoder1:VCC", "pico:3V3", "red", [ "h38.4", "v-28.4", "h134.4", "v67.2" ] ],
+    [ "encoder1:CLK", "pico:GP2", "green", [ "h28.8", "v57.6" ] ],
+    [ "encoder1:DT", "pico:GP3", "green", [ "h19.2", "v57.7" ] ],
+    [ "encoder1:SW", "pico:GP4", "green", [ "h9.6", "v57.7" ] ],
+    [ "ring1:GND", "pico:GND.2", "black", [ "v28.8", "h-57.6", "v-182.4", "h144", "v9.6" ] ],
+    [
+      "ring1:VCC",
+      "pico:3V3",
+      "red",
+      [ "v19.2", "h-76.8", "v-278.4", "h326.4", "v86.4", "h-9.6" ]
+    ],
+    [ "ring1:DIN", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "pico:GP5", "green", [ "v0" ] ],
+    [ "bz2:2", "pico:GP28", "green", [ "v0" ] ],
+    [ "rgb4:COM", "pico:GND.3", "black", [ "v9.2", "h124.9", "v-9.6" ] ],
+    [ "rgb3:COM", "pico:GND.4", "black", [ "v-0.4", "h96.1", "v-19.2" ] ],
+    [ "rgb2:COM", "pico:GND.5", "black", [ "v105.2", "h182.5", "v-9.6" ] ],
+    [ "rgb4:B", "pico:GP8", "green", [ "v0", "h11.2", "v-9.6" ] ],
+    [ "rgb4:G", "pico:GP7", "green", [ "v0" ] ],
+    [ "rgb4:R", "pico:GP6", "green", [ "v0", "h-9.6", "v-38.4" ] ],
+    [ "rgb2:R", "pico:GP9", "green", [ "v0" ] ],
+    [ "rgb2:G", "pico:GP10", "green", [ "v0" ] ],
+    [ "rgb2:B", "pico:GP11", "green", [ "v19.2", "h1.6" ] ],
+    [ "rgb3:B", "pico:GP15", "green", [ "v19.2", "h1.6" ] ],
+    [ "rgb3:G", "pico:GP14", "green", [ "v0" ] ],
+    [ "rgb3:R", "pico:GP13", "green", [ "v-9.6" ] ],
+    [ "rgb1:R", "pico:GP18", "green", [ "v0" ] ],
+    [ "rgb1:G", "pico:GP17", "green", [ "v19.2", "h1.3" ] ],
+    [ "rgb1:B", "pico:GP16", "green", [ "v28.8", "h1.6" ] ],
+    [ "rgb1:COM", "pico:GND.6", "black", [ "v-0.4", "h-38.3", "v-38.4" ] ],
+    [ "bz2:1", "pico:GND.8", "black", [ "v0", "h-57.6", "v-9.6" ] ],
+    [ "servo1:GND", "pico:GND.7", "black", [ "h0" ] ],
+    [ "servo1:V+", "pico:3V3", "red", [ "h-9.6", "v-38.3" ] ],
+    [ "servo1:PWM", "pico:GP26", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
